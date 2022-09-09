@@ -9,7 +9,7 @@
 
 body {
     background-color: #3F4E4F;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
 }
 
 h1 {
@@ -25,11 +25,11 @@ h1 {
 /* Class Styling */
 
 .content {
-    width: 70vw;
-    height: 70vh;
+    width: 80vw;
+    height: 80vh;
     background-color: #2C3639;
     border-radius: 30px;
-    margin: 15vh auto;
+    margin: 10vh auto;
     text-align: center;
 }
 
