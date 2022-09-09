@@ -4,10 +4,20 @@ const guessGender = document.querySelector(".gender");
 const guessAge = document.querySelector(".age");
 const guessNation = document.querySelector(".nation");
 
-function getUserName() {
-    var userName = document.querySelector(".input-name").value;
-    
-    fetch("https://api.genderize.io?name=" + userName)
+function checkUserName () {
+    var userName = document.querySelector(".input-name");
+
+    if (userName.value != "") {
+        postApiData(userName);
+    } else {
+        guessAge.textContent = "Empty Input Field!";
+        guessGender.textContent = "Empty Input Field!";
+        guessNation.textContent = "Empty Input Field!";
+    };
+};
+
+function postApiData(userName) {
+    fetch("https://api.genderize.io?name=" + userName.value)
         .then((res) => res.json())
         .then((data) => {
             if (!data.gender) {
@@ -17,7 +27,7 @@ function getUserName() {
             };
         });
         
-    fetch("https://api.agify.io?name=" + userName)
+    fetch("https://api.agify.io?name=" + userName.value)
         .then((res) => res.json())
         .then((data) => {
             if (!data.age) {
@@ -27,11 +37,11 @@ function getUserName() {
             };
         });
 
-    fetch("https://api.nationalize.io?name=" + userName)
+    fetch("https://api.nationalize.io?name=" + userName.value)
         .then((res) => res.json())
-        .then((data) => {
-            if (data.country.length == 0) {
-                guessNation.textContent = "What did you enter?";
+        .then((data) => { 
+            if (data.country.length == 0) { 
+                guessNation.textContent = "What did you enter?";   
             } else if (data.country.length == 1) {
                 guessNation.textContent = data.country[0].country_id;
             } else {
@@ -40,10 +50,10 @@ function getUserName() {
             }
         });
 
-    userName = "";
+    userName.value = "";
 };
 
-buttonClick.addEventListener("click", getUserName);
+buttonClick.addEventListener("click", checkUserName);
 
 fetch("https://dog.ceo/api/breeds/image/random")
     .then((res) => res.json())
