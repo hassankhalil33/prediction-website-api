@@ -1,3 +1,15 @@
-body {
-    background-color: blue;
+/* CSS Reset */
+
+* {
+    margin: 0;
+    padding: 0;
 }
+
+/* General Styling */
+
+body {
+    background-color: #3F4E4F;
+}
+
+/* Class Styling */
+
