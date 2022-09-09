@@ -9,16 +9,36 @@ function getUserName() {
     
     fetch("https://api.genderize.io?name=" + userName)
         .then((res) => res.json())
-        .then((data) => guessGender.textContent = data.gender);
+        .then((data) => {
+            if (!data.gender) {
+                guessGender.textContent = "What did you enter?";
+            } else {
+                guessGender.textContent = data.gender;
+            };
+        });
         
     fetch("https://api.agify.io?name=" + userName)
         .then((res) => res.json())
-        .then((data) => guessAge.textContent = data.age);
+        .then((data) => {
+            if (!data.age) {
+                guessAge.textContent = "What did you enter?";
+            } else {
+                guessAge.textContent = data.age;
+            };
+        });
 
     fetch("https://api.nationalize.io?name=" + userName)
         .then((res) => res.json())
-        .then((data) => guessNation.textContent = data.country[0].country_id
-        + " " + data.country[1].country_id);
+        .then((data) => {
+            if (data.country.length == 0) {
+                guessNation.textContent = "What did you enter?";
+            } else if (data.country.length == 1) {
+                guessNation.textContent = data.country[0].country_id;
+            } else {
+                guessNation.textContent = data.country[0].country_id
+                + " " + data.country[1].country_id;
+            }
+        });
 
     userName = "";
 };
