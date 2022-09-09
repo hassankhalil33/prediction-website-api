@@ -9,7 +9,37 @@
 
 body {
     background-color: #3F4E4F;
+    font-family: 'Inter';
+}
+
+h1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    align-items: center;
+    text-align: center;
+    color: #A27B5C;
 }
 
 /* Class Styling */
 
+.content {
+    width: 70vw;
+    height: 70vh;
+    background-color: #2C3639;
+    border-radius: 30px;
+    margin: 15vh auto;
+    text-align: center;
+}
+
+.main-div {
+    display: flex;
+    width: 30vw;
+    height: 45vh;
+    margin: 0 auto;
+    padding: 10vh 0;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
