@@ -135,5 +135,28 @@ h1 {
 }
 
 @media only screen and (max-width: 767px) {
-    
+    h1 {
+        font-size: 4vw;
+        line-height: 6vw;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .content {
+        height: 90vh;
+        margin-top: 5vh;
+    }
+
+    .main-div {
+        width: 60vw;
+    }
+
+    .div-img {
+        width: 100%;
+        height: 50%;
+    }
+
+    .input-name {
+        margin-top: 0;
+    }
 }
